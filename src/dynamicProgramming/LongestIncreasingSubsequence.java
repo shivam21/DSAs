@@ -59,5 +59,5 @@ public class LongestIncreasingSubsequence {
         }
         return result;
     }
-    
+
 }
