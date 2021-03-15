@@ -4,6 +4,17 @@ import java.util.Stack;
 
 import static binaryTree.BinaryTreeUse.takeInput;
 
+/*Given a binary tree, print the zig zag order i.e print level 1 from left to right, level 2 from right to left and so on. This means odd levels should get printed from left to right and even level right to left.
+        Input format :
+
+        Elements in level order form (separated by space)
+
+        (If any node does not have left or right child, take -1 in its place)
+
+        Output Format :
+
+        Elements are printed level wise, each level in new line (separated by space).*/
+
 public class ZigZag {
 
     public static void main(String[] args) {

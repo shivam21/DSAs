@@ -7,6 +7,7 @@ package binaryTree;
 
 import java.util.ArrayList;
 
+
 public class SumTree {
 
     public static ArrayList<Integer> sumTree(BinaryTreeNode<Integer> root) {

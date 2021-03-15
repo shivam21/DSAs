@@ -5,6 +5,10 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
+/*
+Given k different arrays, which are sorted individually (in ascending order). You need to merge all the given arrays such that output array should be sorted (in ascending order).
+*/
+
 public class MergeKSorted {
 
     public static void main(String[] args) {

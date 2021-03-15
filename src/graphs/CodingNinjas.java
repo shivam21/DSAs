@@ -3,6 +3,11 @@ package graphs;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/*
+Given a NxM matrix containing Uppercase English Alphabets only. Your task is to tell if there is a path in the given matrix which makes the sentence “CODINGNINJA” .
+        There is a path from any cell to all its neighbouring cells. A neighbour may share an edge or a corner.
+*/
+
 public class CodingNinjas {
 
     public static void main(String[] args) {

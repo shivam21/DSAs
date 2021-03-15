@@ -1,3 +1,6 @@
+import binaryTree.BinaryTreeNode;
+
+import java.util.Stack;
 
 class Node {
     int val;
@@ -54,6 +57,54 @@ class Solution {
         }
         if (prev != null)
             prev.next = null;
+
+    }
+
+    public static void preOrder(BinaryTreeNode<Integer> root) {
+        Stack<BinaryTreeNode<Integer>> stack = new Stack<>();
+        while (true) {
+            while (root != null) {
+                System.out.println(root.data);
+                stack.add(root.right);
+                root = root.left;
+            }
+            if (stack.isEmpty())
+                return;
+            root = stack.pop();
+        }
+    }
+
+    public static void inOrder(BinaryTreeNode<Integer> root) {
+        Stack<BinaryTreeNode<Integer>> stack = new Stack<>();
+        while (true) {
+            while (root != null) {
+                stack.add(root);
+                root = root.left;
+            }
+            if (stack.isEmpty())
+                return;
+            BinaryTreeNode<Integer> node = stack.pop();
+            System.out.println(node.data);
+            root = node.right;
+        }
+    }
+
+    public static void postOrder(BinaryTreeNode<Integer> root) {
+        Stack<BinaryTreeNode<Integer>> stack = new Stack<>();
+        Stack<BinaryTreeNode<Integer>> printStack = new Stack<>();
+        while (true) {
+            while (root != null) {
+                stack.add(root.right);
+                printStack.add(root);
+                root = root.left;
+            }
+            if (stack.isEmpty())
+                break;
+            root = stack.pop();
+        }
+        while (!printStack.isEmpty()) {
+            System.out.print(printStack.pop().data + " ");
+        }
 
     }
 }

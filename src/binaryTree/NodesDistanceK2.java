@@ -1,5 +1,15 @@
 package binaryTree;
 
+/*You are given a Binary Tree of type integer, a target node, and an integer value K.
+        Print the data of all nodes that have a distance K from the target node. The order in which they would be printed will not matter.
+        Example:
+        For a given input tree(refer to the image below):
+        1. Target Node: 5
+        2. K = 2
+        alt txt
+
+        Starting from the target node 5, the nodes at distance K are 7 4 and 1.*/
+
 public class NodesDistanceK2 {
 
     public static void main(String[] args) {

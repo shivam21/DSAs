@@ -2,6 +2,10 @@ package hashmap;
 
 import java.util.HashMap;
 
+/*
+Given a string, you need to remove all the duplicates. That means, the output string should contain each character only once. The respective order of characters should remain same.
+*/
+
 public class UniqueCharacters {
 
     public static String uniqueChar(String str) {

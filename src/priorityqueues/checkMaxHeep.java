@@ -2,6 +2,9 @@ package priorityqueues;
 
 import java.util.Scanner;
 
+/*Given an array of integers, check whether it represents max-heap or not.
+        Return true or false.*/
+
 public class checkMaxHeep {
 
     public static void main(String[] args) {

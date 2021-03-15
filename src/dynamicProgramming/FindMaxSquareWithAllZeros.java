@@ -1,5 +1,9 @@
 package dynamicProgramming;
 
+/*
+Given a n*m matrix which contains only 0s and 1s, find out the size of maximum square sub-matrix with all 0s. You need to return the size of square with all 0s.
+*/
+
 public class FindMaxSquareWithAllZeros {
 
     public static int findMaxSquareWithAllZeros(int[][] input) {

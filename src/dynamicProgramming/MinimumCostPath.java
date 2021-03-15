@@ -1,5 +1,9 @@
 package dynamicProgramming;
 
+/*Given an integer matrix of size m*n, you need to find out the value of minimum cost to reach from the cell (0, 0) to (m-1, n-1).
+        From a cell (i, j), you can move in three directions : (i+1, j), (i, j+1) and (i+1, j+1).
+        Cost of a path is defined as the sum of values of each cell through which path passes.*/
+
 public class MinimumCostPath {
 
     public static int minCostPathRecursive(int input[][]) {

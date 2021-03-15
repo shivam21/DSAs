@@ -1,5 +1,9 @@
 package dynamicProgramming;
 
+/*
+Gary has two string S and V. Now Gary wants to know the length shortest subsequence in S such that it is not a subsequence in V.
+*/
+
 public class ShortestSequence {
 
     public int solve(String S, String V) {

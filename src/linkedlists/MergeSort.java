@@ -1,83 +1,124 @@
 package linkedlists;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class MergeSort {
-    public static void main(String[] args) {
-        LinkedListNode<Integer> tail = new LinkedListNode<>(12);
-        LinkedListNode<Integer> head = new LinkedListNode<>(11, new LinkedListNode<>(6, new LinkedListNode<>(1, new LinkedListNode<>(44, tail))));
-        head = mergeSort(head);
-        printList(head);
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+    public static LinkedListNode<Integer> takeInput() throws IOException {
+        LinkedListNode<Integer> head = null, tail = null;
+
+        String[] datas = br.readLine().trim().split("\\s");
+
+        int i = 0;
+        while (i < datas.length && !datas[i].equals("-1")) {
+            int data = Integer.parseInt(datas[i]);
+            LinkedListNode<Integer> newNode = new LinkedListNode<Integer>(data);
+            if (head == null) {
+                head = newNode;
+                tail = newNode;
+            } else {
+                tail.next = newNode;
+                tail = newNode;
+            }
+            i += 1;
+        }
+
+        return head;
+    }
+
+    public static void print(LinkedListNode<Integer> head) {
+        while (head != null) {
+            System.out.print(head.data + " ");
+            head = head.next;
+        }
+
+        System.out.println();
+    }
+
+    public static void main(String[] args) throws NumberFormatException, IOException {
+
+        int t = Integer.parseInt(br.readLine().trim());
+
+        while (t > 0) {
+
+            LinkedListNode<Integer> head = takeInput();
+
+            LinkedListNode<Integer> newHead = mergeSort(head);
+            print(newHead);
+
+            t -= 1;
+        }
+
     }
 
     private static LinkedListNode<Integer> mergeSort(LinkedListNode<Integer> head) {
-        if (head == null || head.next == null) {
+        if (head == null||head.next==null) {
             return head;
         }
-        LinkedListNode<Integer> mid = findMid(head);
+        LinkedListNode<Integer> secondHalf = findSecond(head);
         LinkedListNode<Integer> head1 = mergeSort(head);
-        LinkedListNode<Integer> head2 = mergeSort(mid);
+        LinkedListNode<Integer> head2 = mergeSort(secondHalf);
         return merge(head1, head2);
     }
 
     private static LinkedListNode<Integer> merge(LinkedListNode<Integer> head1, LinkedListNode<Integer> head2) {
-        LinkedListNode<Integer> head = null;
+        LinkedListNode<Integer> newHead = null;
         LinkedListNode<Integer> headTop = null;
-        while (head1 != null & head2 != null) {
-            if (head1.data <= head2.data) {
-                if (head == null) {
-                    head = head1;
+        while (head1 != null && head2 != null) {
+            if (head1.data < head2.data) {
+                if (newHead == null) {
                     headTop = head1;
+                    newHead = head1;
                 } else {
-                    head.next = head1;
-                    head = head.next;
+                    newHead.next = head1;
+                    newHead = newHead.next;
                 }
                 head1 = head1.next;
             } else {
-                if (head == null) {
-                    head = head2;
+                if (newHead == null) {
                     headTop = head2;
+                    newHead = head2;
                 } else {
-                    head.next = head2;
-                    head = head.next;
+                    newHead.next = head2;
+                    newHead = newHead.next;
                 }
                 head2 = head2.next;
             }
         }
-        if (head1 == null && head2 != null) {
-            if (head != null) {
-                head.next = head2;
+        if (head1 != null) {
+            if (newHead != null) {
+                newHead.next = head1;
             } else {
-                return head2;
+                headTop = head1;
+                newHead = head1;
             }
         }
-        if (head1 != null) {
-            if (head != null) {
-                head.next = head1;
+        if (head2 != null) {
+            if (newHead != null) {
+                newHead.next = head2;
             } else {
-                return head1;
+                headTop = head2;
             }
         }
         return headTop;
     }
 
-    private static LinkedListNode<Integer> findMid(LinkedListNode<Integer> head) {
+    private static LinkedListNode<Integer> findSecond(LinkedListNode<Integer> head) {
+        if (head == null)
+            return head;
         LinkedListNode<Integer> slow = head;
         LinkedListNode<Integer> fast = head;
-        while (fast != null && fast.next != null && fast.next.next != null) {
+        while (fast.next != null && fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        LinkedListNode<Integer> next = null;
-        if (slow != null) {
-            next = slow.next;
-            slow.next = null;
-        }
-        return next;
+        LinkedListNode<Integer> nextHead = slow.next;
+        slow.next = null;
+        return nextHead;
     }
 
-    private static void printList(LinkedListNode<Integer> temp) {
-        while (temp != null) {
-            System.out.println(temp.data);
-            temp = temp.next;
-        }
-    }
+
 }

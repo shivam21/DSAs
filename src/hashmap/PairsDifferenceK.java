@@ -5,6 +5,9 @@ import linkedlists.Solution;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/*You are given with an array of integers and an integer K. Write a program to find and print all pairs which have difference K.
+        Take difference as absolute.*/
+
 public class PairsDifferenceK {
 
     public static void main(String[] args) {

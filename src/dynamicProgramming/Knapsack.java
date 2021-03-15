@@ -3,6 +3,10 @@ package dynamicProgramming;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/*
+A thief robbing a store and can carry a maximal weight of W into his knapsack. There are N items and ith item weigh wi and is of value vi. What is the maximum value V, that thief can take ?
+*/
+
 public class Knapsack {
 
     public static int knapsackRecursive(int[] weight, int value[], int maxWeight, int n) {

@@ -6,6 +6,13 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/*Given a binary tree, write code to create a separate linked list for each level. You need to return the array which contains head of each level linked list.
+        Input format :
+
+        Elements in level order form (separated by space). If any node does not have left or right child, take -1 in its place.
+
+        Output format : Each level linked list is printed in new line (elements separated by space).*/
+
 public class LevelWiseLL {
 
     public static ArrayList<Node<BinaryTreeNode<Integer>>> LLForEachLevel(BinaryTreeNode<Integer> root) {

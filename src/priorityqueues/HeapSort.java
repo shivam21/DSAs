@@ -1,5 +1,8 @@
 package priorityqueues;
 
+/*Given an integer array of size n. Sort this array (in decreasing order) using heap sort.
+        Space complexity should be O(1).*/
+
 public class HeapSort {
 
 

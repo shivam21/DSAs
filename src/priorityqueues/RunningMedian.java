@@ -3,6 +3,9 @@ package priorityqueues;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
+//You are given a stream of N integers. For every i-th integer added to the running list of integers, print the resulting median.
+//        Print only the integer part of the median.
+
 public class RunningMedian {
 
     public static void findMedian(int arr[]) {

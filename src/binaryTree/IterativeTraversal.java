@@ -1,6 +1,10 @@
 package binaryTree;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Stack;
+import java.util.TimeZone;
 
 import static binaryTree.BinaryTreeUse.takeInput;
 
@@ -39,6 +43,49 @@ public class IterativeTraversal {
             System.out.println(node.data);
             root = node.right;
         }
+    }
+
+    public static long getFlashEndDate(String date) {
+
+
+        TimeZone timeZone = TimeZone.getDefault();
+        String timeZoneId = timeZone.getID();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssZZZZ");
+        sdf.setTimeZone(TimeZone.getTimeZone(timeZoneId));
+        SimpleDateFormat output = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        Date d = null;
+        try {
+            d = output.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        String formattedTime = output.format(d);
+        long endTime = d.getTime();
+
+        return endTime;
+    }
+
+    public static Date getDate(String date) {
+       
+
+        TimeZone timeZone = TimeZone.getDefault();
+        String timeZoneId = timeZone.getID();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssZZZZ");
+        sdf.setTimeZone(TimeZone.getTimeZone(timeZoneId));
+        SimpleDateFormat output = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        Date d = null;
+        try {
+            d = output.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        String formattedTime = output.format(d);
+        long endTime = d.getTime();
+
+        return d;
     }
 
     private static void printPostOrder(BinaryTreeNode<Integer> root) {
